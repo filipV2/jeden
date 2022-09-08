@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSX & Babel oraz pierwsza aplikacja react</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.19.0/babel.min.js"
+      integrity="sha512-g9FNDzZ0L1+NX84LEwshW1z3FXXTMZccijKm3c7GQGHP440YRJ5JN57OzrJvdHMEWazpbDyh21x/AaAq+gOmmw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <section>
+      <div class="element1"></div>
+      <p id="yuiobg1" class="klasa">paragraf1</p>
+      <p id="yuiobg2" class="klasa">paragraf2</p>
+      <p id="yuiobg3" class="klasa">paragraf3</p>
+      <p id="yuiobg4" class="klasa">paragraf4</p>
+      <p id="yuiobg5" class="klasa">paragraf5</p>
+      <p id="yuiobg6" class="klasa">paragraf6</p>
+      <p id="yuiobg7" class="klasa">paragraf7</p>
+      <p id="yuiobg8" class="klasa">paragraf8</p>
+      <p id="yuiobg9" class="klasa">paragraf9</p>
+      <p id="yuiobg10" class="klasa">paragraf10</p>
+    </section>
+    <div id="content"></div>
+    <div id="contentitem"></div>
+    <div id="contentitem-embed"></div>
+    <script type="text/babel">
+      const formatName = (user) => {
+        // function formatName(user) {
+        return user.firstName + " " + user.lastName;
+      };
+      function getGreeting(user) {
+        if (user) {
+          return <h1>Witaj, {formatName(user)}!</h1>;
+        }
+        return <h1>Witaj, nieznajomy.</h1>;
+      }
+      const user = {
+        firstName: "Grzegorz",
+        lastName: "Brzęczyszczykiewicz",
+        avatarUrl:
+          "https://cdn.pixabay.com/photo/2015/07/15/06/42/man-845709_960_720.jpg",
+      };
+
+      const element = getGreeting(user);
+      const root = ReactDOM.createRoot(document.getElementById("contentitem"));
+      root.render(element);
+      const element1 = <img src={user.avatarUrl}></img>;
+      const root1 = ReactDOM.createRoot(document.getElementById("content"));
+      root1.render(element1);
+      /*const root = ReactDOM.createRoot(document.getElementById("contentitem"));
+      root.render(<h2>Filip Zięba!</h2>);*/
+      const elementEmbed = (
+        <div>
+          <h1>Witaj!</h1>
+          <h2>Dobrze cię widzieć.</h2>
+        </div>
+      );
+      const rootEmbed = ReactDOM.createRoot(document.getElementById("contentitem-embed"));
+      rootEmbed.render(elementEmbed)
+      /*const element = {
+      type: 'h1',
+      props: {
+        className: 'greeting',
+        children: 'Witaj, świecie'
+      }
+    };
+    Takie obiekty nazywamy ”elementami reactowymi”. Możesz o nich myśleć jak o sposobie opisania tego, 
+    co znajdzie się na ekranie. ReactDOM odczytuje te obiekty i używa ich do skonstruowania drzewa DOM twojej strony, 
+    jak również do późniejszego odświeżania go.
+    w ten sposob react opisuje wezly swojego wirtualnego drzewa dom*/
+    </script>
+  </body>
+</html>
