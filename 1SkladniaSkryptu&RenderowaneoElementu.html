@@ -53,22 +53,23 @@
         lastName: "Brzęczyszczykiewicz",
         avatarUrl:
           "https://cdn.pixabay.com/photo/2015/07/15/06/42/man-845709_960_720.jpg",
-      };
+      };  
 
-      const element = getGreeting(user);
-      const root = ReactDOM.createRoot(document.getElementById("contentitem"));
-      root.render(element);
-      const element1 = <img src={user.avatarUrl}></img>;
-      const root1 = ReactDOM.createRoot(document.getElementById("content"));
-      root1.render(element1);
-      /*const root = ReactDOM.createRoot(document.getElementById("contentitem"));
+      const element = <div>< img src={user.avatarUrl}></img><h1>{getGreeting(user)}</h1></div>;//jedyne wyrazenie jsx w calym skrypcie
+      const root = ReactDOM.createRoot(document.getElementById("contentitem"));//entry point
+      root.render(element);//zamieniamy kod na pixele wyswietlane w przegladarce
+
+      //jsx to string prawidlowo interpretujacy znaczniki html oraz wyrazenia js ujete w nawiasach klamrowych
+      //jsx wystepuje tylko w elemencie ktory mamy renderowac
+      //pozostaly kod w skrypcie to js
+      /*const root = ReactDOM.createRoot(document.getElementById("contentitem")); 
       root.render(<h2>Filip Zięba!</h2>);*/
       const elementEmbed = (
         <div>
           <h1>Witaj!</h1>
           <h2>Dobrze cię widzieć.</h2>
         </div>
-      );
+      );  
       const rootEmbed = ReactDOM.createRoot(document.getElementById("contentitem-embed"));
       rootEmbed.render(elementEmbed)
       /*const element = {
@@ -82,6 +83,7 @@
     co znajdzie się na ekranie. ReactDOM odczytuje te obiekty i używa ich do skonstruowania drzewa DOM twojej strony, 
     jak również do późniejszego odświeżania go.
     w ten sposob react opisuje wezly swojego wirtualnego drzewa dom*/
+    //aktualizowanie renderowanego elementu 
     </script>
   </body>
 </html>
