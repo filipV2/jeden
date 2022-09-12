@@ -30,40 +30,36 @@
             function Welcome (props) {
               return(
                 <div>
-                  <h1>Cześć, {props.name}</h1><h3>m asz lat:{props.age}</h3>
+                  <h1>Liczba kursow:{kursy.length}</h1><h3>{props.name}</h3><h3>{props.age}</h3>
                 </div>
               );}//zagniezdzenie elementu
-            const element = <Welcome name="Tomek" />;
+            const element = <Welcome name="Liczba kursow:3" />;
             const age = <Welcome age="20" />;
             const root = ReactDOM.createRoot(document.getElementById("root"));
             root.render(element);
             function App() {
               return (
                 <div>
-                  <Welcome name="Tomek" age="20"/>
-                  <Welcome name="Bob" age="69"/>
-                  <Welcome name="Josef" age="2"/>
+                  <Welcome name="Liczba kursow :" age="3"/>
+                  <Welcome name="1." age="Programowanie w C#"/>
+                  <Welcome name="2." age="Angular dla pocztatkujacych"/>
+                  <Welcome name="3." age="Kurs Django"/>
                 </div>
               );
             }
             root.render(App());
-            //const element2=<App/>
-            //const root2 = ReactDOM.createRoot(document.getElementById("root"));
-           // root2.render(element);
-            //function Welcome(props) {
-            //  return <h1>Cześć, {props.name}</h1>;
-            //}
-        
+            const kursy = ['Programowanie w C#', 'Angular dla pocztatkujacych', 'Kurs Django'];
+            document.write(value+kursy); // [1, "A", true, [], {a: "A"}]
     </script>
-    <form>
-      <input type="button" id="html" name="fav_language" value="Zapisz do kursu" color="blue">
-      <label for="html">Zabpisz</label><br>
       <form action="*">
         <label>Imie i nazwisko:<br></label> <input type="text" name="nazwisko" />
         </form><br>
         <form action="*">
           <label>Numer kursu:<br></label> <input type="text" name="nazwisko" />
           </form><br>
+          <form>
+            <input type="button" id="html" name="fav_language" value="Zapisz do kursu" backgroundcolor="blue">
+            <label for="html"></label><br>
     </form>
   </body>
 </html>
